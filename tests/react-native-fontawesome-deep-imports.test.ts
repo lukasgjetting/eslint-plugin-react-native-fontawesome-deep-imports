@@ -24,6 +24,9 @@ import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
         `,
+        `
+import { faCode as fasCode } from '@fortawesome/free-solid-svg-icons/faCode';
+        `,
     ],
     invalid: [
         {
@@ -46,6 +49,15 @@ import {
             output: `
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+            `,
+        },
+        {
+            code: `
+import { faCode as fasCode } from '@fortawesome/free-solid-svg-icons';
+            `,
+            errors: [{ messageId: 'fontAwesomeIconNotDeepImport' }],
+            output: `
+import { faCode as fasCode } from '@fortawesome/free-solid-svg-icons/faCode';
             `,
         },
     ],

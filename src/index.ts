@@ -39,7 +39,13 @@ const reactNativeFontAwesomeDeepImports = (context: Rule.RuleContext) : Rule.Rul
                 node,
                 messageId: 'fontAwesomeIconNotDeepImport',
                 fix: (fixer) => {
-                    const newImports = importedIcons.map((i) => `import { ${i.local.name} } from '${source}/${i.local.name}';`);
+                    const newImports = importedIcons.map((i) => {
+                        const identifier = i.local.name === i.imported.name ?
+                            i.local.name :
+                            `${i.imported.name} as ${i.local.name}`;
+
+                        return `import { ${identifier} } from '${source}/${i.imported.name}';`
+                    });
 
                     return fixer.replaceText(node, newImports.join('\n'));
                 },
