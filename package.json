@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-native-fontawesome-deep-imports",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An ESLint rule to enforce deep icon imports when using FontAwesome with React Native.",
   "main": "./dist/index.js",
   "author": "Lukas Gjetting",
