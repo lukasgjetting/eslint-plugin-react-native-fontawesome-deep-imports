@@ -1,4 +1,4 @@
-# eslint-pluginreact-native-fontawesome-deep-imports
+# eslint-plugin-react-native-fontawesome-deep-imports
 
 An ESLint rule to enforce deep imports when importing FontAwesome icons in React Native.
 
@@ -27,11 +27,11 @@ First, make sure you have ESLint installed and set up.
 Then, install `eslint-plugin-react-native-fontawesome-deep-imports`:
 
 ```sh
-npm install --save-dev eslint-pluginreact-native-fontawesome-deep-imports
+npm install --save-dev eslint-plugin-react-native-fontawesome-deep-imports
 
 # or
 
-yarn add --dev eslint-pluginreact-native-fontawesome-deep-imports
+yarn add --dev eslint-plugin-react-native-fontawesome-deep-imports
 ```
 
 ## Usage
