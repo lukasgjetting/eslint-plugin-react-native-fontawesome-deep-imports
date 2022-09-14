@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "ts-mocha --recursive \"./tests/*.test.ts\""
+    "test": "ts-mocha --recursive \"./tests/*.test.ts\"",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.1",
