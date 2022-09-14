@@ -44,7 +44,9 @@ const reactNativeFontAwesomeDeepImports = (context: Rule.RuleContext) : Rule.Rul
 
                         const source = node.source.raw.replace(sourceName, `${sourceName}/${i.imported.name}`)
 
-                        return `import { ${identifier} } from ${source};`
+                        const lineEnd = node.range[1] === node.source.range[1] ? '' : ';';
+
+                        return `import { ${identifier} } from ${source}${lineEnd}`
                     });
 
                     return fixer.replaceText(node, newImports.join('\n'));

@@ -30,6 +30,9 @@ import { faCode as fasCode } from '@fortawesome/free-solid-svg-icons/faCode';
         `
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
         `,
+        `
+import { faCode } from '@fortawesome/free-solid-svg-icons/faCode'
+        `,
     ],
     invalid: [
         {
@@ -70,6 +73,15 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
             errors: [{ messageId: 'fontAwesomeIconNotDeepImport' }],
             output: `
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
+            `,
+        },
+        {
+            code: `
+import { faCode } from '@fortawesome/free-solid-svg-icons'
+            `,
+            errors: [{ messageId: 'fontAwesomeIconNotDeepImport' }],
+            output: `
+import { faCode } from '@fortawesome/free-solid-svg-icons/faCode'
             `,
         },
     ],
