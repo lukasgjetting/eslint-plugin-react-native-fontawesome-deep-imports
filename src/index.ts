@@ -16,12 +16,12 @@ const iconPackages = {
 const reactNativeFontAwesomeDeepImports = (context: Rule.RuleContext) : Rule.RuleListener => {
     return {
         ImportDeclaration(node: ImportDeclaration) {
-            const source = node.source.value;
+            const sourceName = node.source.value;
 
             // If import is not from a package we care about, ignore it
             if (
-                typeof source !== 'string' ||
-                iconPackages[source] !== true
+                typeof sourceName !== 'string' ||
+                iconPackages[sourceName] !== true
             ) {
                 return;
             }
@@ -33,8 +33,6 @@ const reactNativeFontAwesomeDeepImports = (context: Rule.RuleContext) : Rule.Rul
                 return;
             }
 
-            const sourceCode = context.getSourceCode();
-
             context.report({
                 node,
                 messageId: 'fontAwesomeIconNotDeepImport',
@@ -44,7 +42,9 @@ const reactNativeFontAwesomeDeepImports = (context: Rule.RuleContext) : Rule.Rul
                             i.local.name :
                             `${i.imported.name} as ${i.local.name}`;
 
-                        return `import { ${identifier} } from '${source}/${i.imported.name}';`
+                        const source = node.source.raw.replace(sourceName, `${sourceName}/${i.imported.name}`)
+
+                        return `import { ${identifier} } from ${source};`
                     });
 
                     return fixer.replaceText(node, newImports.join('\n'));
